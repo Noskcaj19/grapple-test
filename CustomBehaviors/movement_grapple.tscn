@@ -8,8 +8,12 @@ resource_local_to_scene = true
 size = Vector3(0.05, 0.05, 0.05)
 subdivide_depth = 20
 
-[node name="MovementGrapple" type="Node3D" groups=["movement_providers"]]
+[node name="MovementGrapple" type="Node3D" node_paths=PackedStringArray("_line_helper", "_line", "_grapple_raycast", "_grapple_target") groups=["movement_providers"]]
 script = ExtResource("1_l31aj")
+_line_helper = NodePath("LineHelper")
+_line = NodePath("LineHelper/Line")
+_grapple_raycast = NodePath("Grapple_RayCast")
+_grapple_target = NodePath("Grapple_Target")
 
 [node name="Grapple_RayCast" type="RayCast3D" parent="."]
 collision_mask = 3

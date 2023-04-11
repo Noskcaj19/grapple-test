@@ -63,8 +63,8 @@ var hook_point := Vector3(0,0,0)
 var _grapple_button := false
 
 # Get line creation nodes
-@onready var _line_helper : Node3D = $LineHelper
-@onready var _line : CSGCylinder3D = $LineHelper/Line
+@export var _line_helper : Node3D# = $LineHelper
+@export var _line : CSGCylinder3D# = $LineHelper/Line
 
 # Get Controller node - consider way to universalize this if user wanted to
 # attach this to a gun instead of player's hand.  Could consider variable to
@@ -72,10 +72,10 @@ var _grapple_button := false
 @onready var _controller := XRHelpers.get_xr_controller(self)
 
 # Get Raycast node
-@onready var _grapple_raycast : RayCast3D = $Grapple_RayCast
+@export var _grapple_raycast : RayCast3D#= $Grapple_RayCast
 
 # Get Grapple Target Node
-@onready var _grapple_target : Node3D = $Grapple_Target
+@export var _grapple_target : Node3D# = $Grapple_Target
 
 
 # Add support for is_xr_class on XRTools classes
@@ -134,7 +134,7 @@ func _process(_delta: float):
 # Perform grapple movement
 func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bool):
 	# Disable if requested
-	if disabled or !enabled or !_controller.get_is_active():
+	if !enabled or !_controller.get_is_active():
 		_set_grappling(false)
 		return
 
