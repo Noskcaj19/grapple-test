@@ -74,11 +74,13 @@ func initialize() -> bool:
 
 
 # Check for configuration issues
-func _get_configuration_warning():
-	if physics_rate_multiplier < 1:
-		return "Physics rate multiplier should be at least 1x the HMD rate"
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := PackedStringArray()
 
-	return ""
+	if physics_rate_multiplier < 1:
+		warnings.append("Physics rate multiplier should be at least 1x the HMD rate")
+
+	return warnings
 
 
 # Perform OpenXR setup
@@ -100,6 +102,9 @@ func _setup_for_openxr() -> bool:
 	# Check for passthrough
 	if enable_passthrough and xr_interface.is_passthrough_supported():
 		enable_passthrough = xr_interface.start_passthrough()
+
+	# Disable vsync
+	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
 	# Switch the viewport to XR
 	get_viewport().use_xr = true

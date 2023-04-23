@@ -40,7 +40,6 @@ signal request_reset_scene
 ## Interface
 
 func _ready() -> void:
-	get_viewport().use_xr = true
 	pass
 
 # Add support for is_xr_class on XRTools classes
@@ -127,3 +126,15 @@ func load_scene(p_scene_path : String) -> void:
 ## staging.
 func reset_scene() -> void:
 	emit_signal("request_reset_scene")
+
+
+# Verifies our staging has a valid configuration.
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings := PackedStringArray()
+
+	# Report missing environment
+	if !environment:
+		warnings.append("No environment specified")
+
+	# Return warnings
+	return warnings

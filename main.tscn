@@ -1,10 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://c26t20oe0kecy"]
+[gd_scene load_steps=30 format=3 uid="uid://dgvt7pj68hv3y"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gwmyc"]
 [ext_resource type="PackedScene" uid="uid://cc6ngdqie8o8c" path="res://addons/godot-xr-tools/effects/vignette.tscn" id="2_8xvl2"]
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_y0yj3"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="3_dt7cu"]
-[ext_resource type="PackedScene" uid="uid://cya3ukx1t5ewt" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_gg70y"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_gg70y"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_qos05"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_03cjs"]
 [ext_resource type="Texture2D" uid="uid://biugmgasrshjb" path="res://Valve_1m x 1m.png" id="5_wpjj5"]
