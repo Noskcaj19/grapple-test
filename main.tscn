@@ -1,7 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://dgvt7pj68hv3y"]
+[gd_scene load_steps=29 format=3 uid="uid://dgvt7pj68hv3y"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_gwmyc"]
-[ext_resource type="PackedScene" uid="uid://cc6ngdqie8o8c" path="res://addons/godot-xr-tools/effects/vignette.tscn" id="2_8xvl2"]
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_y0yj3"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="3_dt7cu"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="3_gg70y"]
@@ -84,8 +83,6 @@ current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-
-[node name="Vignette" parent="XROrigin3D/XRCamera3D" instance=ExtResource("2_8xvl2")]
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
