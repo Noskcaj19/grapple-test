@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvi3ewagrbyb4"]
+[gd_scene load_steps=7 format=3 uid="uid://bvi3ewagrbyb4"]
 
 [ext_resource type="Script" path="res://scenes/LeftHandUI.gd" id="1_sf1xr"]
+[ext_resource type="StyleBox" uid="uid://cfmv427vlex7o" path="res://textures/UI Hover.tres" id="2_5grit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fx6eq"]
 font_size = 28
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4e4xx"]
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_tuo8f"]
 resource_name = "GrappleWinchMethod"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yqw0u"]
 
 [node name="CanvasLayer" type="CanvasLayer" node_paths=PackedStringArray("GrappleWhichModeTrigger", "GrappleWhichModeThumbstick")]
 script = ExtResource("1_sf1xr")
@@ -36,6 +41,9 @@ offset_top = 46.0
 offset_right = 693.0
 offset_bottom = 96.0
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("2_5grit")
+theme_override_styles/hover_pressed = ExtResource("2_5grit")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4e4xx")
 button_pressed = true
 button_group = SubResource("ButtonGroup_tuo8f")
 text = "Trigger"
@@ -46,5 +54,8 @@ offset_top = 100.0
 offset_right = 693.0
 offset_bottom = 150.0
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = ExtResource("2_5grit")
+theme_override_styles/hover_pressed = ExtResource("2_5grit")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yqw0u")
 button_group = SubResource("ButtonGroup_tuo8f")
 text = "Right Thumbstick"
