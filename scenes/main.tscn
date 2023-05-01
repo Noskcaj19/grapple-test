@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://3attliifu618"]
+[gd_scene load_steps=39 format=3 uid="uid://3attliifu618"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
@@ -15,6 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://bvi3ewagrbyb4" path="res://scenes/LeftHandUI.tscn" id="9_hfmw0"]
 [ext_resource type="PackedScene" uid="uid://i6t1hvxfla7" path="res://scenes/LeftActionHandler.tscn" id="10_ov7cj"]
 [ext_resource type="PackedScene" uid="uid://cnbh8wvacxdyg" path="res://scenes/pistol.tscn" id="10_uqgmu"]
+[ext_resource type="PackedScene" uid="uid://ckbyymss4oog6" path="res://scenes/Grapple Tile.tscn" id="16_j826l"]
+[ext_resource type="PackedScene" uid="uid://b7vwdwxm8qvyg" path="res://scenes/Non-Grapple Tile.tscn" id="17_k5yu4"]
+[ext_resource type="PackedScene" uid="uid://qxgc7gbn162h" path="res://scenes/Level1.tscn" id="18_0rwny"]
+[ext_resource type="Script" path="res://scenes/Killbox.gd" id="19_gqhjd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nvf05"]
+radius = 0.4
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37nn"]
 
@@ -79,6 +86,9 @@ size = Vector2(60, 60)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lerc8"]
 size = Vector3(60, 1, 60)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu5xw"]
+size = Vector3(350, 150, 250)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_gwmyc")
 
@@ -111,7 +121,8 @@ show_target = true
 distance = 1000.0
 
 [node name="MovementGrapple" parent="XROrigin3D/LeftHand" instance=ExtResource("8_d0qs5")]
-grapple_length = 100000.0
+winch_speed = 20.0
+grapple_button_action = "trigger_touch"
 
 [node name="UIHandWindow" parent="XROrigin3D/LeftHand" instance=ExtResource("8_ic85i")]
 transform = Transform3D(1, 0, 0, 0, 0.92388, 0.382683, 0, -0.382683, 0.92388, 0.25, 0.15, 0)
@@ -141,8 +152,15 @@ laser_length = 1
 show_target = true
 distance = 1000.0
 
+[node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("5_xvi8n")]
+
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_0g1nu")]
+collision_layer = 524800
 player_radius = 0.7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/PlayerBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00849, 0)
+shape = SubResource("CapsuleShape3D_nvf05")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.938776, 0.344528, 0, -0.344528, 0.938776, 0, 4.04726, 3.14195)
@@ -308,6 +326,7 @@ shape = SubResource("BoxShape3D_fjbad")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 17
+metadata/grappleable = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_75d5g")
@@ -315,3 +334,22 @@ mesh = SubResource("PlaneMesh_75d5g")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_lerc8")
+
+[node name="Grapple Tile" parent="." instance=ExtResource("16_j826l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.879021, 0.82057, -5.16414)
+
+[node name="Non-Grapple Tile" parent="." instance=ExtResource("17_k5yu4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
+
+[node name="Level1" parent="." instance=ExtResource("18_0rwny")]
+transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95589, 38.0687, 36.8297)
+collision_layer = 512
+script = ExtResource("19_gqhjd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_hu5xw")
+
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]
