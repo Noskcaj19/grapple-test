@@ -151,17 +151,28 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 
 	# Update grapple button
 	var old_grapple_button := _grapple_button
+	# Variables for trigger movement
+	var trigger_strength = _controller.get_float("trigger")
+	var dead_zone = 0.1
 	if Global.winch_mode == Global.WinchMode.Thumbstick:
 		_grapple_button = _controller.is_button_pressed("trigger_click")
 	else:
-		_grapple_button = _controller.is_button_pressed(grapple_button_action)
-
+		# Trigger Deadzone for activating grappling
+		_grapple_button = _controller.is_button_pressed("trigger_touch") and trigger_strength > dead_zone
+	
 	# Enable/disable grappling
 	var do_impulse := false
 	if is_active and !_grapple_button:
 		_set_grappling(false)
 	elif _grapple_button and !old_grapple_button and _is_raycast_valid():
 		hook_object = _grapple_raycast.get_collider()
+		print("Attempting to grapple " + hook_object.to_string())
+		print(hook_object.get_meta_list())
+		if !hook_object.get_meta("grappleable"):
+			print("object not grappleable")
+			print(hook_object.get_meta("grappleable"))
+			_set_grappling(false)
+			return
 		hook_point = _grapple_raycast.get_collision_point()
 		hook_local = hook_point * hook_object.global_transform
 		do_impulse = true
@@ -183,16 +194,16 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 	# Select the grapple speed
 	var speed := impulse_speed if do_impulse else winch_speed
 	if Global.winch_mode == Global.WinchMode.Thumbstick:
-		speed = _controller.get_vector2("primary").y * 20
+		speed = _controller.get_vector2("primary").y * winch_speed
 	else:
-		speed = _controller.get_float("trigger") * 20
+		speed = (trigger_strength - dead_zone) / (1.0 - dead_zone) * winch_speed
 	# Speed scaling, slow down acceleration as we get closer
 	# Start slowing down at 100
 	var speed_scale = max(0, 100 - pow(hook_length, 2))
 	speed += -remap(speed_scale, 0, 100, 0, 20)
 #	speed -= max(0, 20 - hook_length * 2
 #	speed = _controller.get_float("trigger") * 20
-	if hook_length < 1.0:
+	if hook_length < 2.0 or speed < 0.0:
 		speed = 0.0
 
 	# Ensure velocity is at least winch_speed towards hook
