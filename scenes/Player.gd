@@ -24,7 +24,8 @@ func process_weapon():
 		if fired: return
 #		create_sound(SimpleAudioPlayer.SoundName.FirePistol)
 		fired = true
-		if weapon.fire_weapon():
-			Global.create_sound(SimpleAudioPlayer.SoundName.TargetHit)
+		# if weapon.fire_weapon():
+		# 	Global.create_sound(SimpleAudioPlayer.SoundName.TargetHit)
+		weapon.fire_weapon()
 	else:
 		fired = false

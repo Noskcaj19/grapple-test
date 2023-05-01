@@ -39,6 +39,10 @@ fire={
 
 3d_physics/layer_21="Pointable"
 
+[physics]
+
+common/physics_ticks_per_second=144
+
 [xr]
 
 openxr/enabled=true
