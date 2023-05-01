@@ -63,7 +63,7 @@ const DEFAULT_ENABLE_MASK := 0b0000_0000_0000_0000_0000_0000_0001_0000
 
 ## Grapple button (triggers grappling movement).  Be sure this button does not
 ## conflict with other functions.
-@export var grapple_button_action : String = "trigger_click"
+@export var grapple_button_action : String = "by_button"
 
 # Hook related variables
 var hook_object : Node3D = null
@@ -151,7 +151,10 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 
 	# Update grapple button
 	var old_grapple_button := _grapple_button
-	_grapple_button = _controller.is_button_pressed(grapple_button_action)
+	if Global.winch_mode == Global.WinchMode.Thumbstick:
+		_grapple_button = _controller.is_button_pressed("trigger_click")
+	else:
+		_grapple_button = _controller.is_button_pressed(grapple_button_action)
 
 	# Enable/disable grappling
 	var do_impulse := false
@@ -179,7 +182,10 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 
 	# Select the grapple speed
 	var speed := impulse_speed if do_impulse else winch_speed
-	speed = _controller.get_vector2("primary").y * 20
+	if Global.winch_mode == Global.WinchMode.Thumbstick:
+		speed = _controller.get_vector2("primary").y * 20
+	else:
+		speed = _controller.get_float("trigger") * 20
 	# Speed scaling, slow down acceleration as we get closer
 	# Start slowing down at 100
 	var speed_scale = max(0, 100 - pow(hook_length, 2))

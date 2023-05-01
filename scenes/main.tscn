@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5je3v5g6wqy6"]
+[gd_scene load_steps=33 format=3 uid="uid://3attliifu618"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="5_xvi8n"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_0g1nu"]
 [ext_resource type="PackedScene" uid="uid://c78tjrtiyqna8" path="res://CustomBehaviors/movement_grapple.tscn" id="8_d0qs5"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_ic85i"]
 [ext_resource type="PackedScene" uid="uid://c2q5phg8w08o" path="res://addons/godot-xr-tools/functions/movement_jump.tscn" id="9_7x7yy"]
+[ext_resource type="PackedScene" uid="uid://bvi3ewagrbyb4" path="res://scenes/LeftHandUI.tscn" id="9_hfmw0"]
+[ext_resource type="PackedScene" uid="uid://i6t1hvxfla7" path="res://scenes/LeftActionHandler.tscn" id="10_ov7cj"]
 [ext_resource type="PackedScene" uid="uid://cnbh8wvacxdyg" path="res://scenes/pistol.tscn" id="10_uqgmu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37nn"]
@@ -110,6 +113,17 @@ distance = 1000.0
 [node name="MovementGrapple" parent="XROrigin3D/LeftHand" instance=ExtResource("8_d0qs5")]
 grapple_length = 100000.0
 
+[node name="UIHandWindow" parent="XROrigin3D/LeftHand" instance=ExtResource("8_ic85i")]
+transform = Transform3D(1, 0, 0, 0, 0.92388, 0.382683, 0, -0.382683, 0.92388, 0.25, 0.15, 0)
+visible = false
+screen_size = Vector2(0.5, 0.25)
+viewport_size = Vector2(693, 341)
+scene = ExtResource("9_hfmw0")
+collision_layer = 1048576
+
+[node name="LeftActionHandler" parent="XROrigin3D/LeftHand" node_paths=PackedStringArray("ui") instance=ExtResource("10_ov7cj")]
+ui = NodePath("../UIHandWindow")
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.426367, 1.17134, -0.253401)
 tracker = &"right_hand"
@@ -121,6 +135,11 @@ jump_button_action = "primary_click"
 
 [node name="Pistol" parent="XROrigin3D/RightHand" instance=ExtResource("10_uqgmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0538479, 0)
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("5_03cjs")]
+laser_length = 1
+show_target = true
+distance = 1000.0
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_0g1nu")]
 player_radius = 0.7

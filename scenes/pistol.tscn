@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnbh8wvacxdyg"]
+[gd_scene load_steps=3 format=3 uid="uid://cnbh8wvacxdyg"]
 
 [ext_resource type="Script" path="res://scenes/pistol.gd" id="1_dbiqt"]
 [ext_resource type="PackedScene" uid="uid://b1umrxdcbufbr" path="res://models/blasterB.glb" id="1_pgoia"]
-[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="3_a1m2t"]
 
 [node name="Pistol" type="Node3D"]
 script = ExtResource("1_dbiqt")
@@ -14,10 +13,3 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 target_position = Vector3(0, 0, 10)
 debug_shape_custom_color = Color(1, 0, 0, 1)
-
-[node name="FunctionPointer" parent="." instance=ExtResource("3_a1m2t")]
-show_target = true
-distance = 1000.0
-collision_mask = 0
-collide_with_bodies = false
-active_button_action = ""
