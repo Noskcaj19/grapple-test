@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3 uid="uid://qxgc7gbn162h"]
+
+[ext_resource type="PackedScene" uid="uid://ckbyymss4oog6" path="res://scenes/Grapple Tile.tscn" id="1_hbesm"]
+[ext_resource type="PackedScene" uid="uid://b7vwdwxm8qvyg" path="res://scenes/Non-Grapple Tile.tscn" id="2_8e30e"]
+
+[node name="Level1" type="Node3D"]
+
+[node name="Non-Grapplable" type="Node3D" parent="."]
+
+[node name="Non-Grapple Tile3" parent="Non-Grapplable" instance=ExtResource("2_8e30e")]
+transform = Transform3D(0.917283, 0, 9.95592, 0, 20, 0, -0.398237, 0, 22.9321, 26.6591, 0, 27.7436)
+
+[node name="Non-Grapple Tile4" parent="Non-Grapplable" instance=ExtResource("2_8e30e")]
+transform = Transform3D(13.258, 0, -0.467745, 0, 20, 0, 7.01617, 0, 0.883864, 12.512, 0, 7.82694)
+
+[node name="Non-Grapple Tile" parent="Non-Grapplable" instance=ExtResource("2_8e30e")]
+transform = Transform3D(18.8053, 0, -0.340445, 0, 20, 0, 6.8089, 0, 0.940264, 12.346, 0, 45.3094)
+
+[node name="Non-Grapple Tile2" parent="Non-Grapplable" instance=ExtResource("2_8e30e")]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 10, 30.1463, 0, 57.6164)
+
+[node name="Grappleable" type="Node3D" parent="."]
+
+[node name="Grapple Tile" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(20, 0, 0, 0, 0.8, 0, 0, 0, 20, -3.96819, -10, -5.6863)
+
+[node name="Grapple Tile2" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.3894, 0, 12.4635)
+
+[node name="Grapple Tile3" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -5.00551, 0, 19.2258)
+
+[node name="Grapple Tile4" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.46356, 0, 28.6948)
+
+[node name="Grapple Tile5" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.0622005, 0, 34.848)
+
+[node name="Grapple Tile6" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -8.5437, 0, 30.6073)
+
+[node name="Grapple Tile7" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 6.73462, 0, 46.176)
+
+[node name="Grapple Tile8" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6.08712, 0, 46.4199)
+
+[node name="Grapple Tile9" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.29051, 0, 42.9424)
+
+[node name="Grapple Tile10" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.10829, 0, 53.9282)
+
+[node name="Grapple Tile11" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 12.4859, 0, 56.2992)
+
+[node name="Grapple Tile12" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 19.0458, 0, 50.9249)
+
+[node name="Grapple Tile13" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.2346, 0, 59.7767)
+
+[node name="Grapple Tile14" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 21.1797, 0, 68.8656)
+
+[node name="Grapple Tile15" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 31.5958, 0, 66.3134)
+
+[node name="Grapple Tile16" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 48.4032, 0, 70.1038)
+
+[node name="Grapple Tile17" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 40.1046, 0, 58.8809)
+
+[node name="Grapple Tile18" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 49.0355, 0, 52.5582)
+
+[node name="Grapple Tile19" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 36.311, 0, 34.9335)
+
+[node name="Grapple Tile20" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 45.0047, 0, 30.7447)
+
+[node name="Grapple Tile21" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 36.3803, 0, 22.6063)
+
+[node name="Grapple Tile22" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 43.6515, 0, 12.648)
+
+[node name="Grapple Tile23" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28.5559, 0, 8.53825)
+
+[node name="Grapple Tile24" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 36.7755, 0, 2.29455)
+
+[node name="Grapple Tile25" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 18.7557, 0, 0.871932)
+
+[node name="Grapple Tile26" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.6426, 0, -6.08308)
+
+[node name="Grapple Tile27" parent="Grappleable" instance=ExtResource("1_hbesm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 8.24414, 0, 2.13648)
