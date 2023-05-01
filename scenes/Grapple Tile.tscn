@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckbyymss4oog6"]
+
+[ext_resource type="Texture2D" uid="uid://bsejjm7nhdciv" path="res://textures/Block Texture 1.png" id="1_k27ca"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n74bp"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 1, 1)
+emission_energy_multiplier = 2.0
+emission_operator = 1
+emission_texture = ExtResource("1_k27ca")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jinaq"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_n74bp")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnpx1"]
+
+[node name="Grapple Tile" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 17
+metadata/grappleable = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_jinaq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_nnpx1")
