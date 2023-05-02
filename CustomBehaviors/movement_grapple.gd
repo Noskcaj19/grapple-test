@@ -230,6 +230,7 @@ func _set_grappling(active: bool) -> void:
 
 	# Report transition
 	if is_active:
+		Global.create_sound(SimpleAudioPlayer.SoundName.GrappleHit)
 		emit_signal("grapple_started")
 	else:
 		emit_signal("grapple_finished")

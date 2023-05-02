@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://xg0g12fnhwen"]
+[gd_scene load_steps=45 format=3 uid="uid://xg0g12fnhwen"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
@@ -20,6 +20,15 @@
 [ext_resource type="Script" path="res://scenes/Non-Grapple Tile.gd" id="18_lcudp"]
 [ext_resource type="Script" path="res://scenes/Killbox.gd" id="19_gqhjd"]
 [ext_resource type="PackedScene" uid="uid://h4tvn6os8xjs" path="res://scenes/Target.tscn" id="20_gsvin"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta0ex"]
+resource_local_to_scene = true
+size = Vector3(0.05, 0.05, 0.05)
+subdivide_depth = 20
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0qwi"]
+albedo_color = Color(0.25098, 0.25098, 0.25098, 1)
+metallic = 1.0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37nn"]
 
@@ -96,12 +105,12 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_k08tx"]
+[sub_resource type="BoxMesh" id="BoxMesh_gm2jp"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_b30bg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_212kt"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu5xw"]
@@ -139,8 +148,15 @@ show_target = true
 distance = 1000.0
 
 [node name="MovementGrapple" parent="XROrigin3D/LeftHand" instance=ExtResource("8_d0qs5")]
+grapple_length = 20.0
 winch_speed = 20.0
 grapple_button_action = "trigger_touch"
+
+[node name="Grapple_Target" parent="XROrigin3D/LeftHand/MovementGrapple" index="1"]
+mesh = SubResource("BoxMesh_ta0ex")
+
+[node name="Line" parent="XROrigin3D/LeftHand/MovementGrapple/LineHelper" index="0"]
+material = SubResource("StandardMaterial3D_d0qwi")
 
 [node name="UIHandWindow" parent="XROrigin3D/LeftHand" instance=ExtResource("8_ic85i")]
 transform = Transform3D(1, 0, 0, 0, 0.92388, 0.382683, 0, -0.382683, 0.92388, 0.25, 0.15, 0)
@@ -360,10 +376,10 @@ script = ExtResource("18_lcudp")
 tileScale = Vector3(2, 2, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_k08tx")
+mesh = SubResource("BoxMesh_gm2jp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_b30bg")
+shape = SubResource("BoxShape3D_212kt")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
@@ -383,3 +399,5 @@ shape = SubResource("BoxShape3D_hu5xw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.681, 1, 3.023)
 
 [connection signal="body_exited" from="Killzone" to="Killzone" method="_on_body_exited"]
+
+[editable path="XROrigin3D/LeftHand/MovementGrapple"]

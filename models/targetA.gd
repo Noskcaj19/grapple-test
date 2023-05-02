@@ -21,6 +21,7 @@ func _on_bullet_hit():
 		self.visible = false
 		isReady = false
 		Global.score += score
+		Global.create_sound(SimpleAudioPlayer.SoundName.TargetBreak)
 		timer.start()
 
 func _on_timer_timeout():

@@ -23,3 +23,6 @@ func _update_which_mode():
 
 func _process(delta):
 	$ColorRect/VBoxContainer/Score.text = "Targets Hit: " + str(Global.score)
+
+func _on_reset_score_pressed():
+	Global.score = 0

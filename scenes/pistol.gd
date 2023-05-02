@@ -15,6 +15,7 @@ func fire_weapon():
 	scene_root.add_child(clone)
 	
 	clone.global_transform = self.global_transform
+	Global.create_sound(SimpleAudioPlayer.SoundName.FirePistol)
 	
 #	_raycast.target_position = Vector3(0, 0, raycast_length) * XRServer.world_scale
 #	if _raycast.is_colliding():
