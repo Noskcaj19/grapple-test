@@ -1,30 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7vwdwxm8qvyg"]
+[gd_scene load_steps=6 format=3 uid="uid://ntjdpgy3eytt"]
 
-[ext_resource type="Texture2D" uid="uid://drq5e3vpr21ei" path="res://textures/Block Texture 2.png" id="1_e0vpo"]
+[ext_resource type="Script" path="res://scenes/Non-Grapple Tile.gd" id="1_xpieg"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n74bp"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rx4ob"]
+load_path = "res://.godot/imported/Block Texture 2.png-413ea1e5d954e003826680533721f2c0.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sv0do"]
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 1, 1)
 emission_energy_multiplier = 2.0
 emission_operator = 1
-emission_texture = ExtResource("1_e0vpo")
+emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_jinaq"]
+[sub_resource type="BoxMesh" id="BoxMesh_8x7gr"]
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_n74bp")
+material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nnpx1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_jgu5u"]
 
-[node name="Non-Grapple Tile" type="Node3D"]
+[node name="Non-Grapple Tile" type="StaticBody3D"]
+script = ExtResource("1_xpieg")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 17
-metadata/grappleable = false
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8x7gr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("BoxMesh_jinaq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_nnpx1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jgu5u")
