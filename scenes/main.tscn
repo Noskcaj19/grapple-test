@@ -106,11 +106,11 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rte18"]
+[sub_resource type="BoxMesh" id="BoxMesh_w1okr"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pbu4w"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_4o4aa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -181,7 +181,7 @@ tracker = &"right_hand"
 jump_button_action = "primary_click"
 
 [node name="Pistol" parent="XROrigin3D/RightHand" instance=ExtResource("10_uqgmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0538479, 0)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.00668335, 0)
 
 [node name="FunctionPointer" parent="XROrigin3D/RightHand" instance=ExtResource("5_03cjs")]
 laser_length = 1
@@ -367,10 +367,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_rte18")
+mesh = SubResource("BoxMesh_w1okr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_pbu4w")
+shape = SubResource("BoxShape3D_4o4aa")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
