@@ -106,13 +106,11 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_xvgf1"]
+[sub_resource type="BoxMesh" id="BoxMesh_rte18"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
-size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dx4ah"]
-size = Vector3(2, 2, 2)
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbu4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -168,7 +166,7 @@ visible = false
 screen_size = Vector2(0.5, 0.25)
 viewport_size = Vector2(693, 341)
 scene = ExtResource("9_hfmw0")
-collision_layer = 1048576
+collision_layer = 0
 
 [node name="LeftActionHandler" parent="XROrigin3D/LeftHand" node_paths=PackedStringArray("ui") instance=ExtResource("10_ov7cj")]
 ui = NodePath("../UIHandWindow")
@@ -367,13 +365,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64533, 0.9824, -4.48922)
 [node name="Non-Grapple Tile" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
 script = ExtResource("18_lcudp")
-tileScale = Vector3(2, 2, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_xvgf1")
+mesh = SubResource("BoxMesh_rte18")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_dx4ah")
+shape = SubResource("BoxShape3D_pbu4w")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
