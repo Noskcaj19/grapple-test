@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://h4tvn6os8xjs"]
+
+[ext_resource type="PackedScene" uid="uid://botiemys0vowl" path="res://models/targetA.glb" id="1_2tcb7"]
+[ext_resource type="Script" path="res://models/targetA.gd" id="2_6hef5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r4nj7"]
+height = 0.05
+radius = 0.17
+
+[node name="Target" type="StaticBody3D"]
+script = ExtResource("2_6hef5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0, 0, 5, 0, 0, 0)
+shape = SubResource("CylinderShape3D_r4nj7")
+
+[node name="targetA" parent="." instance=ExtResource("1_2tcb7")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="bullet_hit" from="." to="." method="_on_bullet_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

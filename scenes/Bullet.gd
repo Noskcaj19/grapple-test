@@ -14,13 +14,12 @@ func _ready():
 func _collided(body):
 	if hit_something == false:
 		if body.has_signal("bullet_hit"):
-			body.emit_signal("bullet_hit", body)
+			body.emit_signal("bullet_hit")
 		Global.create_sound(SimpleAudioPlayer.SoundName.TargetHit)
 	hit_something = true
 	queue_free()
 	
 func _process(delta):
-	print(delta)
 	pass
 
 func _physics_process(delta):

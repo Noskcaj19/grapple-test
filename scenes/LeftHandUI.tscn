@@ -59,3 +59,9 @@ theme_override_styles/hover_pressed = ExtResource("2_5grit")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yqw0u")
 button_group = SubResource("ButtonGroup_tuo8f")
 text = "Right Thumbstick"
+
+[node name="Score" type="Label" parent="ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Targets Hit: 0"
+label_settings = SubResource("LabelSettings_fx6eq")

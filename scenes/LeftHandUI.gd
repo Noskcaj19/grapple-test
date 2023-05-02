@@ -22,4 +22,4 @@ func _update_which_mode():
 		Global.set_winch_mode(Global.WinchMode.Trigger)
 
 func _process(delta):
-	pass
+	$ColorRect/VBoxContainer/Score.text = "Targets Hit: " + str(Global.score)

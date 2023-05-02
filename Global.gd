@@ -4,6 +4,8 @@ var _config = ConfigFile.new()
 
 var simple_audio_player: PackedScene = preload("res://scenes/SimpleAudioPlayer.tscn")
 
+var score = 0
+
 func create_sound(sound: SimpleAudioPlayer.SoundName):
 	var audio_clone = simple_audio_player.instantiate()
 	var scene_root = get_tree().root.get_children()[0]

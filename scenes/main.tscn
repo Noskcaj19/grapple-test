@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://xg0g12fnhwen"]
+[gd_scene load_steps=43 format=3 uid="uid://xg0g12fnhwen"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dlc18wjeng2ss" path="res://scenes/Level1.tscn" id="18_0rwny"]
 [ext_resource type="Script" path="res://scenes/Non-Grapple Tile.gd" id="18_lcudp"]
 [ext_resource type="Script" path="res://scenes/Killbox.gd" id="19_gqhjd"]
+[ext_resource type="PackedScene" uid="uid://h4tvn6os8xjs" path="res://scenes/Target.tscn" id="20_gsvin"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g37nn"]
 
@@ -95,12 +96,12 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_wcaiy"]
+[sub_resource type="BoxMesh" id="BoxMesh_1rlbm"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_jp72h"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tjpcg"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu5xw"]
@@ -172,7 +173,7 @@ distance = 1000.0
 [node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("5_xvi8n")]
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_0g1nu")]
-collision_layer = 524801
+collision_layer = 524800
 input_ray_pickable = false
 player_radius = 0.7
 player_height_min = 1.5
@@ -359,10 +360,10 @@ script = ExtResource("18_lcudp")
 tileScale = Vector3(2, 2, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_wcaiy")
+mesh = SubResource("BoxMesh_1rlbm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_jp72h")
+shape = SubResource("BoxShape3D_tjpcg")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
@@ -376,5 +377,8 @@ script = ExtResource("19_gqhjd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Killzone"]
 shape = SubResource("BoxShape3D_hu5xw")
+
+[node name="Target" parent="." instance=ExtResource("20_gsvin")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68143, 1.10846, 3.02313)
 
 [connection signal="body_exited" from="Killzone" to="Killzone" method="_on_body_exited"]
