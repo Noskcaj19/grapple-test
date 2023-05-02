@@ -1,6 +1,6 @@
 extends Node3D
 
-var BULLET_SPEED = 70
+var BULLET_SPEED = 150
 
 var timer = 0
 
