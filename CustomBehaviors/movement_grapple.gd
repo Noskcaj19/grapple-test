@@ -155,7 +155,7 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 	var trigger_strength = _controller.get_float("trigger")
 	var dead_zone = 0.1
 	if Global.winch_mode == Global.WinchMode.Thumbstick:
-		_grapple_button = _controller.is_button_pressed("trigger_click")
+		_grapple_button = _controller.is_button_pressed("trigger_touch") and trigger_strength > .5
 	else:
 		# Trigger Deadzone for activating grappling
 		_grapple_button = _controller.is_button_pressed("trigger_touch") and trigger_strength > dead_zone
