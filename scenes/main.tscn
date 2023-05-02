@@ -96,12 +96,12 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_1rlbm"]
+[sub_resource type="BoxMesh" id="BoxMesh_k08tx"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 size = Vector3(2, 2, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_tjpcg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_b30bg"]
 size = Vector3(2, 2, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu5xw"]
@@ -360,10 +360,10 @@ script = ExtResource("18_lcudp")
 tileScale = Vector3(2, 2, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_1rlbm")
+mesh = SubResource("BoxMesh_k08tx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_tjpcg")
+shape = SubResource("BoxShape3D_b30bg")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
@@ -371,6 +371,7 @@ transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.01397
 [node name="Killzone" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.95589, 38.0687, 36.8297)
 collision_layer = 512
+collision_mask = 513
 monitorable = false
 priority = 1.0
 script = ExtResource("19_gqhjd")
@@ -379,6 +380,6 @@ script = ExtResource("19_gqhjd")
 shape = SubResource("BoxShape3D_hu5xw")
 
 [node name="Target" parent="." instance=ExtResource("20_gsvin")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.68143, 1.10846, 3.02313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.681, 1, 3.023)
 
 [connection signal="body_exited" from="Killzone" to="Killzone" method="_on_body_exited"]

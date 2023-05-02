@@ -1,6 +1,12 @@
 extends Node3D
 
+@export var score: int = 1
+
+# Get timer
 @onready var timer: Timer = $Timer
+
+# Get collider
+@onready var collider: CollisionShape3D = $CollisionShape3D
 
 var isReady: bool = true
 
@@ -12,13 +18,11 @@ func _ready():
 
 func _on_bullet_hit():
 	if isReady:
+		self.visible = false
 		isReady = false
-		Global.score += 1
+		Global.score += score
 		timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _on_timer_timeout():
+	self.visible = true
 	isReady = true

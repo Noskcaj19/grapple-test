@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlc18wjeng2ss"]
+[gd_scene load_steps=4 format=3 uid="uid://dlc18wjeng2ss"]
 
 [ext_resource type="PackedScene" uid="uid://ckbyymss4oog6" path="res://scenes/Grapple Tile.tscn" id="1_hbesm"]
 [ext_resource type="PackedScene" uid="uid://ntjdpgy3eytt" path="res://scenes/Non-Grapple Tile.tscn" id="2_8e30e"]
+[ext_resource type="PackedScene" uid="uid://h4tvn6os8xjs" path="res://scenes/Target.tscn" id="3_q0f2x"]
 
 [node name="Level1" type="Node3D"]
 
@@ -132,3 +133,15 @@ tileScale = Vector3(2, 2, 2)
 [node name="Grapple Tile27" parent="Grappleable" instance=ExtResource("1_hbesm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.24414, 0, 2.13648)
 tileScale = Vector3(2, 2, 2)
+
+[node name="Targets" type="Node3D" parent="."]
+
+[node name="Target" parent="Targets" instance=ExtResource("3_q0f2x")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 54.9389, 0, 17.173)
+score = 3
+
+[node name="Target2" parent="Targets" instance=ExtResource("3_q0f2x")]
+transform = Transform3D(-2.12132, 0, 2.12132, 0, 3, 0, -2.12132, 0, -2.12132, 46.1564, -4.99855, 84.7467)
+
+[node name="Target3" parent="Targets" instance=ExtResource("3_q0f2x")]
+transform = Transform3D(2.89778, 0, -0.776457, 0, 3, 0, 0.776457, 0, 2.89778, -18.533, -4.99855, 45.6662)
