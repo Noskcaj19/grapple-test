@@ -107,11 +107,11 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_eqp2t"]
+[sub_resource type="BoxMesh" id="BoxMesh_6js4m"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_k7dvm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_65sym"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -367,10 +367,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_eqp2t")
+mesh = SubResource("BoxMesh_6js4m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_k7dvm")
+shape = SubResource("BoxShape3D_65sym")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
