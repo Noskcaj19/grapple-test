@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cootu2tvvr2hx"]
+
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="1_gbkx2"]
+[ext_resource type="PackedScene" uid="uid://l6t7jqi6u48a" path="res://scenes/Instructions/InstructionsBlocks2D.tscn" id="2_o6rea"]
+
+[node name="InstructionsBlocks" type="Node3D"]
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("1_gbkx2")]
+screen_size = Vector2(3, 0.4)
+viewport_size = Vector2(217, 37)
+scene = ExtResource("2_o6rea")
+collision_layer = 0
