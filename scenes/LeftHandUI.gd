@@ -10,6 +10,7 @@ func _ready():
 	%Vignette.pressed.connect(self._update_vignette)
 	%"Vignette Power".value_changed.connect(self._update_vignette)
 	%Turn.pressed.connect(self._update_turn)
+	%Style.pressed.connect(self._update_style)
 	_read_settings()
 
 func _read_settings():
@@ -34,6 +35,9 @@ func _update_vignette():
 
 func _update_turn():
 	Global.set_turn_enabled(%Turn.button_pressed)
+
+func _update_style():
+	Global.set_style(%Style.button_pressed)
 
 func _process(delta):
 	$ColorRect/VBoxContainer/Score.text = "Targets Hit: " + str(Global.score)

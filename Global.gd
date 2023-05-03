@@ -2,6 +2,7 @@ extends Node
 
 signal vignette_updated()
 signal turn_updated()
+signal style_updated()
 
 var _config = ConfigFile.new()
 
@@ -24,6 +25,7 @@ var winch_mode: WinchMode = WinchMode.Trigger
 var vignette = false
 var vignette_power = 1
 var turn = true
+var style = false
 
 
 func set_turn_enabled(new_val: bool):
@@ -44,6 +46,10 @@ func set_vignette_enabled(new_val: bool):
 	vignette = new_val
 	_update_vignette()
 	_save()
+
+func set_style(new_val: bool):
+	style = new_val
+	style_updated.emit()
 
 func _ready():
 	_load()

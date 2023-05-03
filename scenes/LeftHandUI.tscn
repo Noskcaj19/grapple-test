@@ -4,7 +4,8 @@
 [ext_resource type="StyleBox" uid="uid://cfmv427vlex7o" path="res://textures/UI Hover.tres" id="2_5grit"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fx6eq"]
-font_size = 28
+line_spacing = 1.0
+font_size = 23
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4e4xx"]
 
@@ -22,7 +23,7 @@ GrappleWhichModeThumbstick = NodePath("ColorRect/VBoxContainer/Thumbstick")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 693.0
-offset_bottom = 341.0
+offset_bottom = 374.0
 color = Color(0, 1, 1, 0.54902)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
@@ -80,6 +81,12 @@ text = "Vignette power"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Style" type="CheckBox" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Style
+"
 
 [node name="Score" type="Label" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
