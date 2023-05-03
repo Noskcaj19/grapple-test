@@ -9,6 +9,7 @@ func _ready():
 	GrappleWhichModeThumbstick.pressed.connect(self._update_which_mode)
 	%Vignette.pressed.connect(self._update_vignette)
 	%"Vignette Power".value_changed.connect(self._update_vignette)
+	%Turn.pressed.connect(self._update_turn)
 	_read_settings()
 
 func _read_settings():
@@ -19,6 +20,7 @@ func _read_settings():
 	
 	%Vignette.button_pressed = Global.vignette
 	%"Vignette Power".value = Global.vignette_power
+	%Turn.button_pressed = Global.turn
 
 func _update_which_mode():
 	if GrappleWhichModeThumbstick.button_pressed:
@@ -29,6 +31,9 @@ func _update_which_mode():
 func _update_vignette():
 	Global.set_vignette_enabled(%Vignette.button_pressed)
 	Global.set_vignette_power(%"Vignette Power".value)
+
+func _update_turn():
+	Global.set_turn_enabled(%Turn.button_pressed)
 
 func _process(delta):
 	$ColorRect/VBoxContainer/Score.text = "Targets Hit: " + str(Global.score)

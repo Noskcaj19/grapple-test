@@ -1,6 +1,7 @@
 extends Node
 
 signal vignette_updated()
+signal turn_updated()
 
 var _config = ConfigFile.new()
 
@@ -22,6 +23,13 @@ enum WinchMode {
 var winch_mode: WinchMode = WinchMode.Trigger
 var vignette = false
 var vignette_power = 1
+var turn = true
+
+
+func set_turn_enabled(new_val: bool):
+	turn = new_val
+	turn_updated.emit()
+	_save()
 
 func set_winch_mode(new_val: WinchMode):
 	winch_mode = new_val
@@ -50,6 +58,10 @@ func _load():
 	else:
 		winch_mode = WinchMode.Thumbstick
 	
+
+	if _config.get_value("Input", "turn") != null:
+		turn = _config.get_value("Input", "turn")
+	
 	if _config.get_value("Accessibility", "vignette") != null:
 		vignette = _config.get_value("Accessibility", "vignette")
 
@@ -61,6 +73,7 @@ func _save():
 		_config.set_value("Input", "winch_mode", "Trigger")
 	else:
 		_config.set_value("Input", "winch_mode", "Thumbstick")
+	_config.set_value("Input", "turn", turn)
 	_config.set_value("Accessibility", "vignette_power", vignette_power)
 	_config.set_value("Accessibility", "vignette", vignette)
 	_config.save("user://settings.cfg")

@@ -57,6 +57,12 @@ action_mode = 0
 button_group = SubResource("ButtonGroup_tuo8f")
 text = "Left Thumbstick"
 
+[node name="Turn" type="CheckBox" parent="ColorRect/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+text = "Enable turning?"
+
 [node name="Vignette" type="CheckBox" parent="ColorRect/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

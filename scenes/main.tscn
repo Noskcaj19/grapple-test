@@ -1,10 +1,11 @@
-[gd_scene load_steps=47 format=3 uid="uid://xg0g12fnhwen"]
+[gd_scene load_steps=48 format=3 uid="uid://xg0g12fnhwen"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_y0yj3"]
 [ext_resource type="PackedScene" uid="uid://6yqe5ewl3v73" path="res://scenes/SettingVignette.tscn" id="3_3eyrt"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="3_dt7cu"]
+[ext_resource type="Script" path="res://scenes/ApplySettings.gd" id="3_yjpxp"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_qos05"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_03cjs"]
 [ext_resource type="Texture2D" uid="uid://biugmgasrshjb" path="res://Valve_1m x 1m.png" id="5_wpjj5"]
@@ -107,11 +108,11 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_6js4m"]
+[sub_resource type="BoxMesh" id="BoxMesh_psfcr"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_65sym"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_s5s1l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -123,6 +124,9 @@ script = ExtResource("1_gwmyc")
 current = true
 script = ExtResource("2_ggin3")
 weapon = NodePath("RightHand/Pistol")
+
+[node name="Node" type="Node" parent="XROrigin3D"]
+script = ExtResource("3_yjpxp")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
@@ -136,9 +140,9 @@ tracker = &"left_hand"
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_y0yj3")]
 
 [node name="MovementTurn" parent="XROrigin3D/LeftHand" instance=ExtResource("4_qos05")]
+unique_name_in_owner = true
 turn_mode = 2
 smooth_turn_speed = 4.25
-enabled = false
 
 [node name="MovementDirect" parent="XROrigin3D/LeftHand" instance=ExtResource("5_xvi8n")]
 max_speed = 20.0
@@ -367,10 +371,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_6js4m")
+mesh = SubResource("BoxMesh_psfcr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_65sym")
+shape = SubResource("BoxShape3D_s5s1l")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)
