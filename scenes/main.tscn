@@ -52,9 +52,9 @@ albedo_texture = ExtResource("17_m7o4p")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
 uv1_triplanar = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_75d5g"]
+[sub_resource type="BoxMesh" id="BoxMesh_kx47m"]
 material = SubResource("StandardMaterial3D_k3vts")
-size = Vector2(60, 60)
+size = Vector3(60, 1, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lerc8"]
 size = Vector3(60, 1, 60)
@@ -71,17 +71,17 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_1r2oc"]
+[sub_resource type="BoxMesh" id="BoxMesh_ygaip"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5igds"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_noh1b"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_5xfa0"]
+[sub_resource type="BoxMesh" id="BoxMesh_tiv3g"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_oyxqu"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6lld"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -216,7 +216,8 @@ environment = SubResource("Environment_4bpdf")
 collision_layer = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_75d5g")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_kx47m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -232,10 +233,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -5)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="IntroComponents/Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_1r2oc")
+mesh = SubResource("BoxMesh_ygaip")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroComponents/Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_5igds")
+shape = SubResource("BoxShape3D_noh1b")
 
 [node name="InstructionsBlocks" parent="IntroComponents" instance=ExtResource("20_yxj0k")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.01965, 2.18306, -5)
@@ -249,10 +250,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.5, -3)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="IntroComponents/Non-Grapple Tile2"]
-mesh = SubResource("BoxMesh_5xfa0")
+mesh = SubResource("BoxMesh_tiv3g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroComponents/Non-Grapple Tile2"]
-shape = SubResource("BoxShape3D_oyxqu")
+shape = SubResource("BoxShape3D_x6lld")
 
 [node name="InstructionsTarget" parent="IntroComponents" instance=ExtResource("24_nx2na")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.63891, 2.33343, -1.31294)
