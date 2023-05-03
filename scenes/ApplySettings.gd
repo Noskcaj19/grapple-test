@@ -12,7 +12,6 @@ func _update_turn():
 #	var children = parent.find_children("MovementTurn", "", true)
 #	print(children)
 	%MovementTurn.enabled = Global.turn
-	%MovementDirect.strafe = Global.turn
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
