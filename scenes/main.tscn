@@ -193,6 +193,7 @@ show_target = true
 distance = 1000.0
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("5_xvi8n")]
+strafe = true
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_0g1nu")]
 collision_layer = 524800
