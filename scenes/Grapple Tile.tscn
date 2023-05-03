@@ -12,18 +12,18 @@ emission_operator = 1
 emission_texture = ExtResource("1_k27ca")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_pjebv"]
+[sub_resource type="BoxMesh" id="BoxMesh_2piuf"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_n74bp")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ocybd"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_88mo3"]
 
 [node name="Grapple Tile" type="StaticBody3D"]
 collision_layer = 17
 script = ExtResource("1_5mtn7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_pjebv")
+mesh = SubResource("BoxMesh_2piuf")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_ocybd")
+shape = SubResource("BoxShape3D_88mo3")

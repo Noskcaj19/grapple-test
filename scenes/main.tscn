@@ -1,8 +1,9 @@
-[gd_scene load_steps=46 format=3 uid="uid://xg0g12fnhwen"]
+[gd_scene load_steps=47 format=3 uid="uid://xg0g12fnhwen"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_gwmyc"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ggin3"]
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_y0yj3"]
+[ext_resource type="PackedScene" uid="uid://6yqe5ewl3v73" path="res://scenes/SettingVignette.tscn" id="3_3eyrt"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="3_dt7cu"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="4_qos05"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_03cjs"]
@@ -106,11 +107,11 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_w1okr"]
+[sub_resource type="BoxMesh" id="BoxMesh_f4lvv"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4o4aa"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_v8que"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -125,6 +126,8 @@ weapon = NodePath("RightHand/Pistol")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="SettingVignette" parent="XROrigin3D/XRCamera3D" instance=ExtResource("3_3eyrt")]
 
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
@@ -150,9 +153,6 @@ distance = 1000.0
 grapple_length = 50.0
 winch_speed = 20.0
 grapple_button_action = "trigger_touch"
-
-[node name="Grapple_RayCast" parent="XROrigin3D/LeftHand/MovementGrapple" index="0"]
-debug_shape_custom_color = Color(0.862745, 0.278431, 0.278431, 1)
 
 [node name="Grapple_Target" parent="XROrigin3D/LeftHand/MovementGrapple" index="1"]
 mesh = SubResource("BoxMesh_ta0ex")
@@ -367,10 +367,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24385, 0.659027, -5.24731)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_w1okr")
+mesh = SubResource("BoxMesh_f4lvv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_4o4aa")
+shape = SubResource("BoxShape3D_v8que")
 
 [node name="Level1" parent="." instance=ExtResource("18_0rwny")]
 transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.0139797, -47.2744, 9.21167, -1.05638)

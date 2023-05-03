@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6yqe5ewl3v73"]
+
+[ext_resource type="Script" path="res://scenes/SettingVignette.gd" id="1_j5evr"]
+[ext_resource type="PackedScene" uid="uid://cc6ngdqie8o8c" path="res://addons/godot-xr-tools/effects/vignette.tscn" id="1_pufkg"]
+
+[node name="SettingVignette" type="Node3D"]
+script = ExtResource("1_j5evr")
+
+[node name="Vignette" parent="." instance=ExtResource("1_pufkg")]
+visible = false
