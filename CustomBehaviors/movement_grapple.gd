@@ -196,7 +196,7 @@ func physics_movement(delta: float, player_body: XRToolsPlayerBody, disabled: bo
 	speed += -remap(speed_scale, 0, 100, 0, 20)
 #	speed -= max(0, 20 - hook_length * 2
 #	speed = _controller.get_float("trigger") * 20
-	if hook_length < 2.0 or speed < 0.0:
+	if hook_length < 2.0 and speed > 0.0:
 		speed = 0.0
 
 	# Ensure velocity is at least winch_speed towards hook
