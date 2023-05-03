@@ -25,7 +25,7 @@ var winch_mode: WinchMode = WinchMode.Trigger
 var vignette = false
 var vignette_power = 1
 var turn = true
-var style = false
+var style = true
 
 
 func set_turn_enabled(new_val: bool):
@@ -73,6 +73,8 @@ func _load():
 
 	if _config.get_value("Accessibility", "vignette_power") != null:
 		vignette_power = _config.get_value("Accessibility", "vignette_power")
+		
+	style_updated.emit()
 
 func _save():
 	if winch_mode == WinchMode.Trigger:
