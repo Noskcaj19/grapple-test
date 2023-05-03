@@ -1,13 +1,10 @@
 extends Node3D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var speed = 1
+@export var vector = Vector3(1, 0 ,0)
 
 var x = 0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	position.x = sin(x)
-	x += .01
+func _physics_process(delta):
+	%Translator.position = vector * sin(x)
+	x += speed * delta

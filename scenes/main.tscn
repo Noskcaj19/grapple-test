@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://scenes/Instructions/LookAtCamera.gd" id="21_ejjw3"]
 [ext_resource type="PackedScene" uid="uid://vqf7imj4wtyy" path="res://scenes/Level2.tscn" id="21_y5o53"]
 [ext_resource type="PackedScene" uid="uid://d1w01v8bpyxdy" path="res://scenes/Instructions/InstructionsTarget.tscn" id="24_nx2na"]
-[ext_resource type="Script" path="res://scenes/Translator.gd" id="27_so0tj"]
+[ext_resource type="PackedScene" uid="uid://00pkxxd6f6n0" path="res://scenes/Level3.tscn" id="28_c63gm"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ta0ex"]
 resource_local_to_scene = true
@@ -71,17 +71,17 @@ emission_operator = 1
 emission_texture = SubResource("CompressedTexture2D_rx4ob")
 uv1_scale = Vector3(3, 2, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ydgbr"]
+[sub_resource type="BoxMesh" id="BoxMesh_1r2oc"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_l5a2d"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_5igds"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_a6qeo"]
+[sub_resource type="BoxMesh" id="BoxMesh_5xfa0"]
 lightmap_size_hint = Vector2i(14, 21)
 material = SubResource("StandardMaterial3D_sv0do")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yi021"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyxqu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xvybo"]
 size = Vector3(900, 250, 900)
@@ -232,10 +232,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -5)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="IntroComponents/Non-Grapple Tile"]
-mesh = SubResource("BoxMesh_ydgbr")
+mesh = SubResource("BoxMesh_1r2oc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroComponents/Non-Grapple Tile"]
-shape = SubResource("BoxShape3D_l5a2d")
+shape = SubResource("BoxShape3D_5igds")
 
 [node name="InstructionsBlocks" parent="IntroComponents" instance=ExtResource("20_yxj0k")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -1.01965, 2.18306, -5)
@@ -249,10 +249,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 3.5, -3)
 script = ExtResource("18_lcudp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="IntroComponents/Non-Grapple Tile2"]
-mesh = SubResource("BoxMesh_a6qeo")
+mesh = SubResource("BoxMesh_5xfa0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IntroComponents/Non-Grapple Tile2"]
-shape = SubResource("BoxShape3D_yi021")
+shape = SubResource("BoxShape3D_oyxqu")
 
 [node name="InstructionsTarget" parent="IntroComponents" instance=ExtResource("24_nx2na")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.63891, 2.33343, -1.31294)
@@ -414,13 +414,10 @@ transform = Transform3D(-0.0139797, 0, -0.999902, 0, 1, 0, 0.999902, 0, -0.01397
 [node name="Level2" parent="." instance=ExtResource("21_y5o53")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 217.337, 6.86622, -324.012)
 
+[node name="Level3" parent="." instance=ExtResource("28_c63gm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 33)
+
 [node name="Testing" type="Node3D" parent="."]
-
-[node name="Translator" type="Node3D" parent="Testing"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 8, 0)
-script = ExtResource("27_so0tj")
-
-[node name="Grapple Tile" parent="Testing/Translator" instance=ExtResource("16_j826l")]
 
 [connection signal="body_exited" from="Killzone" to="Killzone" method="_on_body_exited"]
 

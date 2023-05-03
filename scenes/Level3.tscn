@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://00pkxxd6f6n0"]
+
+[ext_resource type="PackedScene" uid="uid://c5jpl20wa5p14" path="res://scenes/MovingTarget.tscn" id="1_dny78"]
+
+[node name="Level3" type="Node3D"]
+
+[node name="Grappleable" type="Node3D" parent="."]
+
+[node name="MovingTarget" parent="Grappleable" instance=ExtResource("1_dny78")]
+
+[node name="Grapple Tile" parent="Grappleable/MovingTarget/Translator" index="0"]
+tileScale = Vector3(5, 1, 5)
+
+[node name="Non-Grappleable" type="Node3D" parent="."]
+
+[node name="Targets" type="Node3D" parent="."]
+
+[editable path="Grappleable/MovingTarget"]
